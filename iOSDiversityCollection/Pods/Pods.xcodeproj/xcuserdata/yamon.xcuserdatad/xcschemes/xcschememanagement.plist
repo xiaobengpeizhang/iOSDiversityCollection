@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AMTagListView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOSDiversityCollection.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B167C564068CBC64D8C4547081B79128</key>
+		<key>154DE55777B1E4DCEDDE4A6FD89D0343</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2C7BA8C8251641189B9F3CAA9987C27</key>
+		<key>53B900C3CA0EB5C800565FC6EB11C1A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82C75D62480841E553014D81E775098C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

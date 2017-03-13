@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C19E4B5F50D17EBF453EA83C /* Pods_iOSDiversityCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F9BE45FD2DC414C628387F /* Pods_iOSDiversityCollection.framework */; };
+		FF18A3861E766D2900E58BBF /* XBPZTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */; };
+		FF18A3871E766D2900E58BBF /* XBPZTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */; };
 		FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */; };
 		FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9411E6E6C28005802A7 /* Assets.xcassets */; };
 		FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9421E6E6C28005802A7 /* LaunchScreen.storyboard */; };
@@ -29,6 +31,8 @@
 		0716919929634EBB30CE545A /* Pods-iOSDiversityCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDiversityCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDiversityCollection/Pods-iOSDiversityCollection.debug.xcconfig"; sourceTree = "<group>"; };
 		30E215E093EB269AF5B049F8 /* Pods-iOSDiversityCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDiversityCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDiversityCollection/Pods-iOSDiversityCollection.release.xcconfig"; sourceTree = "<group>"; };
 		60F9BE45FD2DC414C628387F /* Pods_iOSDiversityCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDiversityCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZTagViewController.swift; sourceTree = "<group>"; };
+		FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZTagViewController.xib; sourceTree = "<group>"; };
 		FFE8E9291E6E6BAD005802A7 /* iOSDiversityCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDiversityCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE8E9411E6E6C28005802A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 				60F9BE45FD2DC414C628387F /* Pods_iOSDiversityCollection.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF18A37B1E766A0000E58BBF /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */,
+				FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */,
+			);
+			path = Tag;
 			sourceTree = "<group>";
 		};
 		FFE8E9201E6E6BAD005802A7 = {
@@ -150,6 +163,7 @@
 		FFE8E95D1E6E7464005802A7 /* Diversity */ = {
 			isa = PBXGroup;
 			children = (
+				FF18A37B1E766A0000E58BBF /* Tag */,
 				FFE8E95E1E6E74B4005802A7 /* ImagePicker */,
 			);
 			path = Diversity;
@@ -235,6 +249,7 @@
 				FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */,
 				FFE8E9531E6E6D7B005802A7 /* XBPZRootCollectionCell.xib in Resources */,
 				FFE8E94F1E6E6CD5005802A7 /* XBPZRootViewController.xib in Resources */,
+				FF18A3871E766D2900E58BBF /* XBPZTagViewController.xib in Resources */,
 				FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */,
 				FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */,
 				FFE8E9621E6E74C3005802A7 /* XBPZImagePickerViewController.xib in Resources */,
@@ -301,6 +316,7 @@
 				FFE8E9581E6E6E21005802A7 /* Common.swift in Sources */,
 				FFE8E94E1E6E6CD5005802A7 /* XBPZRootViewController.swift in Sources */,
 				FFE8E9521E6E6D7B005802A7 /* XBPZRootCollectionCell.swift in Sources */,
+				FF18A3861E766D2900E58BBF /* XBPZTagViewController.swift in Sources */,
 				FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */,
 				FFE8E96A1E6E7BDC005802A7 /* XBPZImagePIckerCell.swift in Sources */,
 			);

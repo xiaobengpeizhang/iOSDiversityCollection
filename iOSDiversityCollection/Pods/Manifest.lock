@@ -1,12 +1,15 @@
 PODS:
+  - AMTagListView (1.4.0)
   - TZImagePickerController (1.7.8)
 
 DEPENDENCIES:
+  - AMTagListView
   - TZImagePickerController
 
 SPEC CHECKSUMS:
+  AMTagListView: d05b3f080d7128aa6e9fe5a286ac63703dc95c11
   TZImagePickerController: 87a138ae5d585225aaa6c8abe2cface0f0ad19dd
 
-PODFILE CHECKSUM: 68067d8a15b4b5c5ad41bb00ec5ee72f4a5bf0cc
+PODFILE CHECKSUM: 39b488313da8547bc5792522fc216e8ef7009e93
 
 COCOAPODS: 1.1.1

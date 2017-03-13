@@ -3,4 +3,5 @@ use_frameworks!
  
 target ‘iOSDiversityCollection’ do
 	pod 'TZImagePickerController' 
+	pod 'AMTagListView'
 end

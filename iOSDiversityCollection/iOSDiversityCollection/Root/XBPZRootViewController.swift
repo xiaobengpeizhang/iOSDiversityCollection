@@ -40,7 +40,7 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func setupDataArray()
     {
-        self.dataArray = ["图片选择器"]
+        self.dataArray = ["图片选择器", "标签列表"]
     }
 
     func setupCollectionView()
@@ -66,7 +66,15 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        let imagePicker = XBPZImagePickerViewController()
-        self.navigationController?.pushViewController(imagePicker, animated: true)
+        var vc: UIViewController!
+        switch indexPath.row {
+        case 0:
+            vc = XBPZImagePickerViewController()
+        case 1:
+            vc = XBPZTagViewController()
+        default:
+            break
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
