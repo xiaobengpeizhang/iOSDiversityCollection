@@ -14,7 +14,9 @@ class XBPZTagViewController: UIViewController, AMTagListDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.edgesForExtendedLayout = []
+        self.title = "标签列表"
+        self.view.backgroundColor = AARON_SWARTZ
+//        self.edgesForExtendedLayout = []
     }
     
     override func viewDidAppear(_ animated: Bool) {

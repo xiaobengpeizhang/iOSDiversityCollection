@@ -40,14 +40,14 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func setupDataArray()
     {
-        self.dataArray = ["图片选择器", "标签列表"]
+        self.dataArray = ["图片选择器", "标签列表", "饼状图"]
     }
 
     func setupCollectionView()
     {
         self.collectionView.register(UINib.init(nibName: "XBPZRootCollectionCell", bundle: Bundle.main), forCellWithReuseIdentifier: "XBPZRootCollectionCell")
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize.init(width: 100, height: 150)
+        layout.itemSize = CGSize.init(width: 80, height: 80)
         self.collectionView.collectionViewLayout = layout
     }
     
@@ -72,6 +72,8 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
             vc = XBPZImagePickerViewController()
         case 1:
             vc = XBPZTagViewController()
+        case 2:
+            vc = XBPZPieViewController()
         default:
             break
         }

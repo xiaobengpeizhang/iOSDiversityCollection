@@ -25,6 +25,8 @@
 		FFE8E9621E6E74C3005802A7 /* XBPZImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9601E6E74C3005802A7 /* XBPZImagePickerViewController.xib */; };
 		FFE8E96A1E6E7BDC005802A7 /* XBPZImagePIckerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9681E6E7BDC005802A7 /* XBPZImagePIckerCell.swift */; };
 		FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */; };
+		FFF1893F1E7919160029B2C9 /* XBPZPieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */; };
+		FFF189401E7919160029B2C9 /* XBPZPieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		FFE8E9671E6E7ADF005802A7 /* iOSDiversityCollection-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSDiversityCollection-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFE8E9681E6E7BDC005802A7 /* XBPZImagePIckerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZImagePIckerCell.swift; sourceTree = "<group>"; };
 		FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZImagePIckerCell.xib; sourceTree = "<group>"; };
+		FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZPieViewController.swift; sourceTree = "<group>"; };
+		FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZPieViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 		FFE8E95D1E6E7464005802A7 /* Diversity */ = {
 			isa = PBXGroup;
 			children = (
+				FFF189381E79177F0029B2C9 /* Pie */,
 				FF18A37B1E766A0000E58BBF /* Tag */,
 				FFE8E95E1E6E74B4005802A7 /* ImagePicker */,
 			);
@@ -178,6 +183,15 @@
 				FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */,
 			);
 			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		FFF189381E79177F0029B2C9 /* Pie */ = {
+			isa = PBXGroup;
+			children = (
+				FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */,
+				FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */,
+			);
+			path = Pie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +263,7 @@
 				FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */,
 				FFE8E9531E6E6D7B005802A7 /* XBPZRootCollectionCell.xib in Resources */,
 				FFE8E94F1E6E6CD5005802A7 /* XBPZRootViewController.xib in Resources */,
+				FFF189401E7919160029B2C9 /* XBPZPieViewController.xib in Resources */,
 				FF18A3871E766D2900E58BBF /* XBPZTagViewController.xib in Resources */,
 				FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */,
 				FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */,
@@ -318,6 +333,7 @@
 				FFE8E9521E6E6D7B005802A7 /* XBPZRootCollectionCell.swift in Sources */,
 				FF18A3861E766D2900E58BBF /* XBPZTagViewController.swift in Sources */,
 				FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */,
+				FFF1893F1E7919160029B2C9 /* XBPZPieViewController.swift in Sources */,
 				FFE8E96A1E6E7BDC005802A7 /* XBPZImagePIckerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOSDiversityCollection.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>154DE55777B1E4DCEDDE4A6FD89D0343</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>53B900C3CA0EB5C800565FC6EB11C1A3</key>
+		<key>0E3373EF89C4F9FA9E81794782060002</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>82C75D62480841E553014D81E775098C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B990B919C8399693F95AF42719E60149</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F307B842FF76B2DE6C55DB67C0885325</key>
 		<dict>
 			<key>primary</key>
 			<true/>
