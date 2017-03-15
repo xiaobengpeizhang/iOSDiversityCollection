@@ -23,14 +23,14 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // 配置一个饼状图
-        //self.setBasePieChart()
+        self.setBasePieChart()
         // 配置一个调节控件
-        //self.setSlider()
+        self.setSlider()
         
         //测试算法
-        let origin = [0.3, 0.2, 0.3, 0.2]
-        self.test(origin: origin, currentChangeIndex: 0, currentChangeValue: 0.47, lockIndex: [3])
-        // [0.5, 0.05, 0.05, 0.4]
+        //let origin = [10, 30, 40, 20]
+        //self.test(origin: origin, currentChangeIndex: 0, currentChangeValue: 41, lockIndex: [1, 3])
+        //[20, 30, 40, 10]
     }
 
     func setBasePieChart() {
@@ -70,37 +70,52 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     func changeEntryValue(slider: UISlider) {
         print("slider.value: \(slider.value)")
         print("slider.width: \(slider.bounds)")
-        
+        var waitTransfer: Double = Double(slider.value)
+        let afterTransfer = waitTransfer.roundTo(place: 2)
+        print("afterTransfer: \(afterTransfer)")
     }
     
     // MARK:- 设计一个算法。变化一个值，锁定若干值，均等变化若干
-    func test(origin: [Double], currentChangeIndex: Int, currentChangeValue: Double, lockIndex: [Int]) -> [Double] {
+    func test(origin: [Int], currentChangeIndex: Int, currentChangeValue: Int, lockIndex: [Int]) -> [Int] {
         var origin = origin
         var currentChangeValue = currentChangeValue
         // 锁定的和
-        var lockSum = 0.0
+        var lockSum = 0
         for eachLockIndex in lockIndex {
             lockSum += origin[eachLockIndex]
         }
         print("锁定的和: \(lockSum)")
         // 剩余平均分配的数量
         let lastCount = origin.count - 1 - lockIndex.count
-        let currentMax = (1.0 - lockSum - (Double)(lastCount) * 0.1)
+        let currentMax = (100 - lockSum - (lastCount) * 10)
         print("可调节的最大值为: \(currentMax)")
         if currentChangeValue > currentMax {
             print("最大值为: \(currentMax)")
             currentChangeValue = currentMax
         }
         // 剩余平均分配的值
-        let lastEachValue = (1.0 - currentChangeValue - lockSum) / ((Double)(lastCount))
+        let lastEachValue = (100 - currentChangeValue - lockSum) / (lastCount)
+        // 有可能有除不尽的情况
+        let mayNotFit = (100 - currentChangeValue - lockSum) % (lastCount)
         print("平均分配的值: \(lastEachValue)")
-        var newArray = [Double]()
+        print("有可能除不尽的余数: \(mayNotFit)")
+        var newArray = [Int]()
         for (value) in origin {
             newArray.append(lastEachValue)
         }
         newArray[currentChangeIndex] = currentChangeValue
         for eachLockIndex in lockIndex {
             newArray[eachLockIndex] = origin[eachLockIndex]
+        }
+        // 找出未锁定的Index的剩余值的最后一个
+        var unlockLast: Int = -1
+        for (index, value) in origin.enumerated() {
+            if currentChangeIndex != index && !lockIndex.contains(index) {
+                unlockLast = index
+            }
+        }
+        if unlockLast > -1 {
+            newArray[unlockLast] += mayNotFit
         }
         print("newArray: \(newArray)")
         return newArray

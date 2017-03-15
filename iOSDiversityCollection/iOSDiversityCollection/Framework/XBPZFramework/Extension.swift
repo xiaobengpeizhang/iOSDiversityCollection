@@ -29,3 +29,15 @@ extension UIColor
         return UIColor.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: 1.0)
     }
 }
+
+extension Double {
+    // 按照需要保留的小数位数四舍五入，最低也会保留一位小数，如果自己1位小数 想保留两位小数并不会添加0
+    func roundTo(place: Int) -> Double {
+        // 1 要保留几位
+        let discover: Double = pow(10.0, Double(place))
+        // 2 乘以要保留的位数再四舍五入
+        let result: Double = (self * discover).rounded() / discover
+        
+        return result
+    }
+}
