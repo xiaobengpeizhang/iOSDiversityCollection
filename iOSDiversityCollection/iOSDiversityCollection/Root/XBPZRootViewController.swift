@@ -40,7 +40,7 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func setupDataArray()
     {
-        self.dataArray = ["图片选择器", "标签列表", "饼状图"]
+        self.dataArray = ["图片选择器", "标签列表", "饼状图", "按钮样式"]
     }
 
     func setupCollectionView()
@@ -74,6 +74,8 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
             vc = XBPZTagViewController()
         case 2:
             vc = XBPZPieViewController()
+        case 3:
+            vc = XBPZBootstrapButtonViewController()
         default:
             break
         }
