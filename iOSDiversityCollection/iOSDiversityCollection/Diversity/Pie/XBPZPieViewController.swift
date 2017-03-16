@@ -23,7 +23,7 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // 配置一个饼状图
-        self.setBasePieChart()
+        self.setBasePieChart(list: [10, 15, 20, 23, 32])
         // 配置一个调节控件
         self.setSlider()
         
@@ -33,7 +33,7 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
         //[20, 30, 40, 10]
     }
 
-    func setBasePieChart() {
+    func setBasePieChart(list: [Int]) {
         self.pieChart = PieChartView.init(frame: CGRect.init(x: 0, y: 100, width: Double(self.view.bounds.width), height: 300))
         self.view.addSubview(pieChart)
         self.pieChart.backgroundColor = UIColor.white
@@ -48,8 +48,8 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
         self.pieChart.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 0)
         
         var lists: [PieChartDataEntry] = []
-        for index in 0..<5 {
-            let pieChartDataEntry = PieChartDataEntry.init(value: Double(index + 1), label: "testEntry\(index)")
+        for value in list {
+            let pieChartDataEntry = PieChartDataEntry.init(value: Double(value), label: "testEntry\(index)")
             lists.append(pieChartDataEntry)
         }
         let pieChartDataSet = PieChartDataSet.init(values: lists, label: "testSet")
@@ -62,9 +62,10 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     }
     
     func setSlider() {
-        self.slider = UISlider.init(frame: CGRect.init(x: 0, y: 450, width: self.view.bounds.width, height: 20))
+        self.slider = UISlider.init(frame: CGRect.init(x: 20, y: 450, width: self.view.bounds.width - 40, height: 20))
         self.view.addSubview(self.slider)
         self.slider.addTarget(self, action: #selector(changeEntryValue), for: .valueChanged)
+        self.slider.minimumValue = 0.1
     }
     
     func changeEntryValue(slider: UISlider) {
@@ -73,6 +74,10 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
         var waitTransfer: Double = Double(slider.value)
         let afterTransfer = waitTransfer.roundTo(place: 2)
         print("afterTransfer: \(afterTransfer)")
+        let afterTransferInt = afterTransfer * 100
+        print("afterTransferInt: \(afterTransferInt)")
+        let afterChangeList = self.test(origin: [10, 15, 20, 23, 32], currentChangeIndex: 0, currentChangeValue: Int(afterTransferInt), lockIndex: [1, 3])
+        self.setBasePieChart(list: afterChangeList)
     }
     
     // MARK:- 设计一个算法。变化一个值，锁定若干值，均等变化若干
