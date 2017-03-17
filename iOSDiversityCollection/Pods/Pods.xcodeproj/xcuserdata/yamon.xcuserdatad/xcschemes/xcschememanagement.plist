@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SnapKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TZImagePickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E3373EF89C4F9FA9E81794782060002</key>
+		<key>0656FA5EFD0D01F643C63865652954FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>511DD442329A8127E1F222F741A0291A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,7 +47,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B990B919C8399693F95AF42719E60149</key>
+		<key>B74251992C8C8008B93EA87D72342D9C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -2,6 +2,8 @@
 各种iOS效果的集合，包含其他开源项目的学习，使用。
 
 --
+SnapKit  PieChat
+--
 
 #Version 1.1.0
 > 标签列表

@@ -7,7 +7,7 @@
 //
 
 #import "AMTagView.h"
-#import "AMTagListView.h"
+
 #define DEGREES_TO_RADIANS(degrees)  ((3.14159265359 * degrees)/ 180)
 
 #define kDefaultInnerPadding	3
@@ -128,7 +128,6 @@ NSString * const AMTagViewNotification = @"AMTagViewNotification";
 
 - (void)actionButton:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotification:[[NSNotification alloc] initWithName:AMTagViewNotification object:self userInfo:@{@"superview": self.superview}]];
-    [((AMTagListView *)self.superview).tagListDelegate tapTag:self];
 }
 
 - (void)drawWithTagForRect:(CGRect)rect {

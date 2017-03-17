@@ -67,9 +67,9 @@
     NSString *iconString = [NSString stringFromAwesomeIcon:icon];
     self.titleLabel.font = [UIFont fontWithName:@"FontAwesome"
                                            size:self.titleLabel.font.pointSize];
-    
+    NSLog(@"iconString - %@", iconString);
     NSString *title = [NSString stringWithFormat:@"%@", iconString];
-    
+    NSLog(@"title - %@", title);
     if(self.titleLabel.text) {
         if(before)
             title = [title stringByAppendingFormat:@" %@", self.titleLabel.text];

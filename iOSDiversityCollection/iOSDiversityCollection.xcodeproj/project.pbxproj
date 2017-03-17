@@ -32,6 +32,8 @@
 		FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */; };
 		FFF1893F1E7919160029B2C9 /* XBPZPieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */; };
 		FFF189401E7919160029B2C9 /* XBPZPieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */; };
+		FFFF97801E7B8344000DFFFE /* XBPZIconFontOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFF977F1E7B8344000DFFFE /* XBPZIconFontOCViewController.m */; };
+		FFFF97831E7B8A64000DFFFE /* XBPZSptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF97821E7B8A64000DFFFE /* XBPZSptViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,9 @@
 		FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZImagePIckerCell.xib; sourceTree = "<group>"; };
 		FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZPieViewController.swift; sourceTree = "<group>"; };
 		FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZPieViewController.xib; sourceTree = "<group>"; };
+		FFFF977E1E7B8344000DFFFE /* XBPZIconFontOCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBPZIconFontOCViewController.h; sourceTree = "<group>"; };
+		FFFF977F1E7B8344000DFFFE /* XBPZIconFontOCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBPZIconFontOCViewController.m; sourceTree = "<group>"; };
+		FFFF97821E7B8A64000DFFFE /* XBPZSptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZSptViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +206,8 @@
 		FFE8E95D1E6E7464005802A7 /* Diversity */ = {
 			isa = PBXGroup;
 			children = (
+				FFFF97811E7B8A4D000DFFFE /* SnapKitUse */,
+				FFFF977D1E7B8333000DFFFE /* IconFontOC */,
 				FF06217D1E7A7F1E00E19C44 /* BootstrapButton */,
 				FFF189381E79177F0029B2C9 /* Pie */,
 				FF18A37B1E766A0000E58BBF /* Tag */,
@@ -227,6 +234,23 @@
 				FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */,
 			);
 			path = Pie;
+			sourceTree = "<group>";
+		};
+		FFFF977D1E7B8333000DFFFE /* IconFontOC */ = {
+			isa = PBXGroup;
+			children = (
+				FFFF977E1E7B8344000DFFFE /* XBPZIconFontOCViewController.h */,
+				FFFF977F1E7B8344000DFFFE /* XBPZIconFontOCViewController.m */,
+			);
+			path = IconFontOC;
+			sourceTree = "<group>";
+		};
+		FFFF97811E7B8A4D000DFFFE /* SnapKitUse */ = {
+			isa = PBXGroup;
+			children = (
+				FFFF97821E7B8A64000DFFFE /* XBPZSptViewController.swift */,
+			);
+			path = SnapKitUse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +392,8 @@
 				FFE8E9581E6E6E21005802A7 /* Common.swift in Sources */,
 				FFE8E94E1E6E6CD5005802A7 /* XBPZRootViewController.swift in Sources */,
 				FF0621881E7A801E00E19C44 /* NSString+FontAwesome.m in Sources */,
+				FFFF97801E7B8344000DFFFE /* XBPZIconFontOCViewController.m in Sources */,
+				FFFF97831E7B8A64000DFFFE /* XBPZSptViewController.swift in Sources */,
 				FFE8E9521E6E6D7B005802A7 /* XBPZRootCollectionCell.swift in Sources */,
 				FF0621891E7A801E00E19C44 /* UIButton+Bootstrap.m in Sources */,
 				FF06218D1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift in Sources */,
