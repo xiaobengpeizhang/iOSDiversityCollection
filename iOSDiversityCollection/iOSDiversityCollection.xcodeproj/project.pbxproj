@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		C19E4B5F50D17EBF453EA83C /* Pods_iOSDiversityCollection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F9BE45FD2DC414C628387F /* Pods_iOSDiversityCollection.framework */; };
-		FF0621881E7A801E00E19C44 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0621841E7A801E00E19C44 /* NSString+FontAwesome.m */; };
-		FF0621891E7A801E00E19C44 /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0621861E7A801E00E19C44 /* UIButton+Bootstrap.m */; };
-		FF06218A1E7A801E00E19C44 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF0621871E7A801E00E19C44 /* FontAwesome.ttf */; };
 		FF06218D1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06218B1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift */; };
 		FF06218E1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF06218C1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib */; };
 		FF18A3861E766D2900E58BBF /* XBPZTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */; };
 		FF18A3871E766D2900E58BBF /* XBPZTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */; };
+		FF1A96E31E7BEBB300608F8F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1A96DE1E7BEBB300608F8F /* FontAwesome.ttf */; };
+		FF1A96E41E7BEBB300608F8F /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */; };
+		FF1A96E51E7BEBB300608F8F /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */; };
 		FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */; };
 		FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9411E6E6C28005802A7 /* Assets.xcassets */; };
 		FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9421E6E6C28005802A7 /* LaunchScreen.storyboard */; };
@@ -30,6 +30,7 @@
 		FFE8E9621E6E74C3005802A7 /* XBPZImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9601E6E74C3005802A7 /* XBPZImagePickerViewController.xib */; };
 		FFE8E96A1E6E7BDC005802A7 /* XBPZImagePIckerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9681E6E7BDC005802A7 /* XBPZImagePIckerCell.swift */; };
 		FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */; };
+		FFEA209C1E7FB98400F195D8 /* XBPZLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEA209B1E7FB98400F195D8 /* XBPZLineViewController.swift */; };
 		FFF1893F1E7919160029B2C9 /* XBPZPieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */; };
 		FFF189401E7919160029B2C9 /* XBPZPieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */; };
 		FFFF97801E7B8344000DFFFE /* XBPZIconFontOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFF977F1E7B8344000DFFFE /* XBPZIconFontOCViewController.m */; };
@@ -40,15 +41,15 @@
 		0716919929634EBB30CE545A /* Pods-iOSDiversityCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDiversityCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDiversityCollection/Pods-iOSDiversityCollection.debug.xcconfig"; sourceTree = "<group>"; };
 		30E215E093EB269AF5B049F8 /* Pods-iOSDiversityCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDiversityCollection.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDiversityCollection/Pods-iOSDiversityCollection.release.xcconfig"; sourceTree = "<group>"; };
 		60F9BE45FD2DC414C628387F /* Pods_iOSDiversityCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDiversityCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF0621831E7A801E00E19C44 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
-		FF0621841E7A801E00E19C44 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
-		FF0621851E7A801E00E19C44 /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
-		FF0621861E7A801E00E19C44 /* UIButton+Bootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Bootstrap.m"; sourceTree = "<group>"; };
-		FF0621871E7A801E00E19C44 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		FF06218B1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZBootstrapButtonViewController.swift; sourceTree = "<group>"; };
 		FF06218C1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZBootstrapButtonViewController.xib; sourceTree = "<group>"; };
 		FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZTagViewController.swift; sourceTree = "<group>"; };
 		FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZTagViewController.xib; sourceTree = "<group>"; };
+		FF1A96DE1E7BEBB300608F8F /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		FF1A96DF1E7BEBB300608F8F /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		FF1A96E11E7BEBB300608F8F /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
+		FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Bootstrap.m"; sourceTree = "<group>"; };
 		FFE8E9291E6E6BAD005802A7 /* iOSDiversityCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDiversityCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE8E9411E6E6C28005802A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		FFE8E9671E6E7ADF005802A7 /* iOSDiversityCollection-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSDiversityCollection-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFE8E9681E6E7BDC005802A7 /* XBPZImagePIckerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZImagePIckerCell.swift; sourceTree = "<group>"; };
 		FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZImagePIckerCell.xib; sourceTree = "<group>"; };
+		FFEA209B1E7FB98400F195D8 /* XBPZLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZLineViewController.swift; sourceTree = "<group>"; };
 		FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZPieViewController.swift; sourceTree = "<group>"; };
 		FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZPieViewController.xib; sourceTree = "<group>"; };
 		FFFF977E1E7B8344000DFFFE /* XBPZIconFontOCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBPZIconFontOCViewController.h; sourceTree = "<group>"; };
@@ -114,11 +116,7 @@
 		FF0621821E7A7FBB00E19C44 /* DirectFramework */ = {
 			isa = PBXGroup;
 			children = (
-				FF0621831E7A801E00E19C44 /* NSString+FontAwesome.h */,
-				FF0621841E7A801E00E19C44 /* NSString+FontAwesome.m */,
-				FF0621851E7A801E00E19C44 /* UIButton+Bootstrap.h */,
-				FF0621861E7A801E00E19C44 /* UIButton+Bootstrap.m */,
-				FF0621871E7A801E00E19C44 /* FontAwesome.ttf */,
+				FF1A96DD1E7BEBB300608F8F /* ButtoBootstra */,
 			);
 			path = DirectFramework;
 			sourceTree = "<group>";
@@ -130,6 +128,18 @@
 				FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */,
 			);
 			path = Tag;
+			sourceTree = "<group>";
+		};
+		FF1A96DD1E7BEBB300608F8F /* ButtoBootstra */ = {
+			isa = PBXGroup;
+			children = (
+				FF1A96DE1E7BEBB300608F8F /* FontAwesome.ttf */,
+				FF1A96DF1E7BEBB300608F8F /* NSString+FontAwesome.h */,
+				FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */,
+				FF1A96E11E7BEBB300608F8F /* UIButton+Bootstrap.h */,
+				FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */,
+			);
+			path = ButtoBootstra;
 			sourceTree = "<group>";
 		};
 		FFE8E9201E6E6BAD005802A7 = {
@@ -206,6 +216,7 @@
 		FFE8E95D1E6E7464005802A7 /* Diversity */ = {
 			isa = PBXGroup;
 			children = (
+				FFEA209A1E7FB95800F195D8 /* LIneChart */,
 				FFFF97811E7B8A4D000DFFFE /* SnapKitUse */,
 				FFFF977D1E7B8333000DFFFE /* IconFontOC */,
 				FF06217D1E7A7F1E00E19C44 /* BootstrapButton */,
@@ -225,6 +236,14 @@
 				FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */,
 			);
 			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		FFEA209A1E7FB95800F195D8 /* LIneChart */ = {
+			isa = PBXGroup;
+			children = (
+				FFEA209B1E7FB98400F195D8 /* XBPZLineViewController.swift */,
+			);
+			path = LIneChart;
 			sourceTree = "<group>";
 		};
 		FFF189381E79177F0029B2C9 /* Pie */ = {
@@ -327,8 +346,8 @@
 				FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */,
 				FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */,
 				FFE8E9621E6E74C3005802A7 /* XBPZImagePickerViewController.xib in Resources */,
-				FF06218A1E7A801E00E19C44 /* FontAwesome.ttf in Resources */,
 				FF06218E1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib in Resources */,
+				FF1A96E31E7BEBB300608F8F /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,15 +408,16 @@
 			files = (
 				FFE8E9611E6E74C3005802A7 /* XBPZImagePickerViewController.swift in Sources */,
 				FFE8E95C1E6E6FAB005802A7 /* Extension.swift in Sources */,
+				FF1A96E51E7BEBB300608F8F /* UIButton+Bootstrap.m in Sources */,
 				FFE8E9581E6E6E21005802A7 /* Common.swift in Sources */,
 				FFE8E94E1E6E6CD5005802A7 /* XBPZRootViewController.swift in Sources */,
-				FF0621881E7A801E00E19C44 /* NSString+FontAwesome.m in Sources */,
 				FFFF97801E7B8344000DFFFE /* XBPZIconFontOCViewController.m in Sources */,
 				FFFF97831E7B8A64000DFFFE /* XBPZSptViewController.swift in Sources */,
+				FF1A96E41E7BEBB300608F8F /* NSString+FontAwesome.m in Sources */,
 				FFE8E9521E6E6D7B005802A7 /* XBPZRootCollectionCell.swift in Sources */,
-				FF0621891E7A801E00E19C44 /* UIButton+Bootstrap.m in Sources */,
 				FF06218D1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift in Sources */,
 				FF18A3861E766D2900E58BBF /* XBPZTagViewController.swift in Sources */,
+				FFEA209C1E7FB98400F195D8 /* XBPZLineViewController.swift in Sources */,
 				FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */,
 				FFF1893F1E7919160029B2C9 /* XBPZPieViewController.swift in Sources */,
 				FFE8E96A1E6E7BDC005802A7 /* XBPZImagePIckerCell.swift in Sources */,

@@ -218,8 +218,9 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     // MARK:- 饼状图代理
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let pieSelectedValue = entry as! PieChartDataEntry
-        print("selected value: \(pieSelectedValue.value)")
-        let index = self.lists.index(of: pieSelectedValue)
+        print("pieSelectedValue.label: \(pieSelectedValue.label)")
+        let name = pieSelectedValue.label!
+        let index = self.beanNames.index(of: name)
         print("当前选中的是: \(index)")
         self.currentSelectedIndex = index!
     }
