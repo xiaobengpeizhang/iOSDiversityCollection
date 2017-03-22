@@ -14,6 +14,8 @@
  1. 需要知道点击的是哪条线
  2. 需要知道点击的是第几个点
  3. 需要确定这个点可以调节的最大值，最小值
+ 4. 需要显示当前的slider的状态
+ 5. 能够调节slider
  */
 
 import UIKit
@@ -39,6 +41,9 @@ let canChange = false   //能否调节
 let LINE_COLORS_LEFT_YAXIS = UIColor.colorBy16(rgbValue: 0x5b9bd5)   // 线形图 左边y轴颜色
 let LINE_COLORS_RIGHT_YXAXIS = UIColor.colorBy16(rgbValue: 0xed7d32)   // 线形图 右边y轴颜色
 
+
+
+// 描述线的枚举
 
 enum Line {
     case TempLine
@@ -78,56 +83,131 @@ class DeviceCheck
 class XBPZLineViewController: UIViewController, ChartViewDelegate
 {
     
-    var lineChartView: LineChartView?
-    var currentEntry: ChartDataEntry!
-    var slider: UISlider!
-    var selectedLine: Line = Line.None  // 标记 当前点击的是哪条线
-    var selectPoint: Int = -1
+    var lineChartView: LineChartView?           // 图表
     
-    var justForIndex: [Double] = [] // 专门用来返回当前是第几个Point的数组
-    var airValue: [Int] = []    // 保存风量的值
-    var tempValue: [Int] = []   // 保存温度的值
+    var currentEntry: ChartDataEntry!           // 当前选中的数据
+    
+    var slider: UISlider!                       // 滑动控件
+    
+    var selectedLine: Line = Line.None          // 标记 当前点击的是哪条线
+    
+    var selectPoint: Int = -1                   // 当前选中的点
+    
+    var justForIndex: [Double] = []             // 专门用来返回当前是第几个Point的数组
+    
+    var airValue: [Int] = []                    // 保存风量的值
+    
+    var tempValue: [Int] = []                   // 保存温度的值
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor.brown
         self.edgesForExtendedLayout = []
         self.slider = UISlider.init(frame: CGRect.init(x: 20, y: 300, width: self.view.bounds.width - 40, height: 20))
         self.view.addSubview(self.slider)
         self.slider.addTarget(self, action: #selector(changeValue), for: .valueChanged)
-    }
-    
-    func changeValue(slider: UISlider)
-    {
-        let value = slider.value
-        var result = value * (170 - 90) + 91
-        if result >= 170 {
-            result = 169
-        }
-        print("result: \(result)")
-        let tempDataSet = lineChartView?.data?.dataSets[0] as! LineChartDataSet
-        let oneDataEntry = tempDataSet.values[1]
-        print("oneDataEntry: \(oneDataEntry)")
-        let xPoint = oneDataEntry.x
-        let newDataEntry = ChartDataEntry.init(x: xPoint, y: Double(result))
-        print("newDataEntry: \(newDataEntry)")
-        tempDataSet.values[1] = newDataEntry
-        print("tempDataSetValues: \(tempDataSet.values)")
-        lineChartView?.data?.dataSets[0].notifyDataSetChanged()
-        lineChartView?.data?.notifyDataChanged()
-        lineChartView?.notifyDataSetChanged()
-    }
-    
-    func refreshData()
-    {
         
     }
+    
+    
+    // 算法 传入一个整数，返回这个整数距离的最近的以100为单位的数
+    
+    func getValueForValue(value: Int) -> Int {
+        var result: Int = 0
+        // 1 标记是否向后加100
+        var forward: Bool = false
+        // 1 先算对100的余数
+        let last = value % 100
+        let base = value / 100
+        
+        // 2 判断last 如果>= 50 则往后取100  如果 <= 50 往前取100
+        if last >= 50 {
+            
+            forward = true
+        }
+        else {
+            forward = false
+        }
+        
+        if forward {
+            result = base * 100 + 100
+        }
+        else {
+            result = base * 100
+        }
+        print("value: \(value) lase: \(last) base: \(base) forward: \(forward) result: \(result)")
+        return result
+    }
+    
+    // Slider 改变值得方法
+    
+    func changeValue(slider: UISlider) {
+       var result = 0
+        
+        let value = slider.value
+        let min = self.getMaxMin().0
+        let max = self.getMaxMin().1
+        let showValue = Double(max - min) * (Double)(value) + (Double)(min)
+        print("showValue: \((Int)(showValue))")
+        
+        // 1 考虑到风量和温度的间距不一样
+        switch self.selectedLine {
+        case .AirLine:
+            result = self.getValueForValue(value: (Int)(showValue))
+            // 2 风量的间距必须是100为单位所以 计算风量离得最近的那个值并跳到那个值
+        case .TempLine:
+            result = (Int)(showValue)
+        default:
+            break
+        }
+        
+        // 2 找到那条线改变那个值
+        switch self.selectedLine {
+        case .AirLine:
+            let airDataSet = self.lineChartView?.data?.dataSets[1] as! LineChartDataSet
+            let xPoint = airDataSet.values[self.selectPoint].x
+            let newLineChartEntry = ChartDataEntry.init(x: xPoint, y: (Double)(result), data: Line.AirLine as AnyObject?)
+            airDataSet.values[self.selectPoint] = newLineChartEntry
+            self.airValue[self.selectPoint] = result
+        case .TempLine:
+            let tempDataSet = self.lineChartView?.data?.dataSets[0] as! LineChartDataSet
+            let xPoint = tempDataSet.values[self.selectPoint].x
+            let newEntry = ChartDataEntry.init(x: xPoint, y: Double(result), data: Line.TempLine as AnyObject?)
+            tempDataSet.values[self.selectPoint] = newEntry
+            self.tempValue[self.selectPoint] = result
+        default: break
+            
+        }
+        
+        // 3 刷新图表
+        self.lineChartView?.notifyDataSetChanged()
+        
+
+    
+//        print("result: \(result)")
+//        let tempDataSet = lineChartView?.data?.dataSets[0] as! LineChartDataSet
+//        let oneDataEntry = tempDataSet.values[1]
+//        print("oneDataEntry: \(oneDataEntry)")
+//        let xPoint = oneDataEntry.x
+//        let newDataEntry = ChartDataEntry.init(x: xPoint, y: Double(result))
+//        print("newDataEntry: \(newDataEntry)")
+//        tempDataSet.values[1] = newDataEntry
+//        print("tempDataSetValues: \(tempDataSet.values)")
+//        lineChartView?.data?.dataSets[0].notifyDataSetChanged()
+//        lineChartView?.data?.notifyDataChanged()
+//        lineChartView?.notifyDataSetChanged()
+    }
+    
+    //
     
     override func viewDidAppear(_ animated: Bool)
     {
         
         super.viewDidAppear(animated)
+        // 配置slder 颜色
+        self.slider.tintColor = UIColor.red
+        
         lineChartView = LineChartView.init(frame: CGRect.init(x: 20.0, y: 20.0, width: self.view.bounds.width - 40.0, height: 200))
         self.view.addSubview(lineChartView!)
         lineChartView?.chartDescription?.enabled = false
@@ -234,30 +314,60 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         let data = LineChartData.init(dataSets: [tempDataSet, airFlowDataSet])
         lineChartView?.data = data
     }
-
+    
+    // 选中图表的代理方法
+    
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight)
     {
+        // 1 更新当前数据，当前选中的线条、
+        self.currentEntry = entry
         let line = entry.data as! Line
         self.selectedLine = line
         print("selectedLine: \(self.selectedLine)")
         print("entry.x: \(entry.x)")
         
+        // 2 确定当前的选择是第几个点
         self.getPointIndex(xPoint: entry.x)
-        self.getMaxMin()
+    
+        // 3 确定slider的范围
+        if self.selectPoint == 0 {
+            self.slider.isEnabled = false
+        
+        }
+        else {
+            self.slider.isEnabled = true
+            self.refreshSliderState()
+        }
     }
     
+    // 刷新Slider的最大值，最小值， 和当前的点的数据
+    func refreshSliderState() {
+        let min = self.getMaxMin().0
+        let max = self.getMaxMin().1
+        let currentY = self.currentEntry.y
+        print("min: \(min) max:\(max) currentY: \(currentY)")
+        
+        // 计算当前的Slider的当前值
+        let silderCurrent =  (currentY - (Double)(min)) / (Double)(max - min)
+        print("sliderCurrent: \(silderCurrent)")
+    
+        // 更新slider的范围
+        self.slider.value = Float(silderCurrent)
+    }
+    
+    
     //告诉我当前点击的是第几个点
-    func getPointIndex(xPoint: Double) -> Int {
+    
+    func getPointIndex(xPoint: Double) {
         let index = self.justForIndex.index(of: xPoint)
         self.selectPoint = index!
         print("index: \(index)")
-        return index!
     }
     
     //返回这个点的调节值的纵坐标范围 元祖0为最小值  元祖1为最大值
     //原则是第0个点不可调，最后一个点和倒数第二个点可以相等。
     //
-    func getMaxMin() {
+    func getMaxMin() -> (Int, Int) {
         var min = 0
         var max = 0
         switch self.selectedLine {
@@ -311,5 +421,6 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
             break
         }
         print("max: \(max) min: \(min)")
+        return (min, max)
     }
 }
