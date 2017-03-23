@@ -54,7 +54,7 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     }
     
     func setupBeanButton() {
-        let scroll = UIScrollView.init(frame: CGRect.init(x: 0, y: 420 + 10, width: self.view.bounds.width, height: self.view.bounds.height - 440))
+        let scroll = UIScrollView.init(frame: CGRect.init(x: 0, y: 350, width: self.view.bounds.width, height: self.view.bounds.height - 360))
         for (index, name) in self.beanNames.enumerated() {
             let button = UIButton.init(type: .custom)
             button.setTitle(name, for: .normal)
@@ -112,7 +112,7 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     func setBasePieChart(list: [Int]) {
         // 清空self.lists 
         self.lists.removeAll()
-        self.pieChart = PieChartView.init(frame: CGRect.init(x: 0, y: 100, width: Double(self.view.bounds.width), height: 300))
+        self.pieChart = PieChartView.init(frame: CGRect.init(x: 0, y: 0, width: Double(self.view.bounds.width), height: 300))
         self.view.addSubview(pieChart)
         self.pieChart.backgroundColor = UIColor.white
         
@@ -139,7 +139,7 @@ class XBPZPieViewController: UIViewController, ChartViewDelegate {
     }
     
     func setSlider() {
-        self.slider = UISlider.init(frame: CGRect.init(x: 20, y: 410, width: self.view.bounds.width - 40, height: 20))
+        self.slider = UISlider.init(frame: CGRect.init(x: 20, y: 310, width: self.view.bounds.width - 40, height: 20))
         self.view.addSubview(self.slider)
         self.slider.addTarget(self, action: #selector(changeEntryValue), for: .valueChanged)
         self.slider.minimumValue = 0.1

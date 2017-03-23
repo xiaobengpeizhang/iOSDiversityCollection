@@ -20,7 +20,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图片选择器" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-fe-Ker">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
-                        <color key="backgroundColor" red="0.96078431369999995" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -37,7 +37,7 @@
             <connections>
                 <outlet property="titleLabel" destination="qPS-fe-Ker" id="591-J8-zMP"/>
             </connections>
-            <point key="canvasLocation" x="-43" y="125"/>
+            <point key="canvasLocation" x="-328" y="-57"/>
         </collectionViewCell>
     </objects>
 </document>

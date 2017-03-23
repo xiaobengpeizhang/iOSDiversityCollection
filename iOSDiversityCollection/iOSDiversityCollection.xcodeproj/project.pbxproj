@@ -11,7 +11,6 @@
 		FF06218D1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF06218B1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift */; };
 		FF06218E1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF06218C1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib */; };
 		FF18A3861E766D2900E58BBF /* XBPZTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */; };
-		FF18A3871E766D2900E58BBF /* XBPZTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */; };
 		FF1A96E31E7BEBB300608F8F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1A96DE1E7BEBB300608F8F /* FontAwesome.ttf */; };
 		FF1A96E41E7BEBB300608F8F /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */; };
 		FF1A96E51E7BEBB300608F8F /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */; };
@@ -21,18 +20,15 @@
 		FFE8E94A1E6E6C28005802A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9441E6E6C28005802A7 /* Main.storyboard */; };
 		FFE8E94B1E6E6C28005802A7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9461E6E6C28005802A7 /* Info.plist */; };
 		FFE8E94E1E6E6CD5005802A7 /* XBPZRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E94C1E6E6CD5005802A7 /* XBPZRootViewController.swift */; };
-		FFE8E94F1E6E6CD5005802A7 /* XBPZRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E94D1E6E6CD5005802A7 /* XBPZRootViewController.xib */; };
 		FFE8E9521E6E6D7B005802A7 /* XBPZRootCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9501E6E6D7B005802A7 /* XBPZRootCollectionCell.swift */; };
 		FFE8E9531E6E6D7B005802A7 /* XBPZRootCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9511E6E6D7B005802A7 /* XBPZRootCollectionCell.xib */; };
 		FFE8E9581E6E6E21005802A7 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9571E6E6E21005802A7 /* Common.swift */; };
 		FFE8E95C1E6E6FAB005802A7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E95B1E6E6FAB005802A7 /* Extension.swift */; };
 		FFE8E9611E6E74C3005802A7 /* XBPZImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E95F1E6E74C3005802A7 /* XBPZImagePickerViewController.swift */; };
-		FFE8E9621E6E74C3005802A7 /* XBPZImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9601E6E74C3005802A7 /* XBPZImagePickerViewController.xib */; };
 		FFE8E96A1E6E7BDC005802A7 /* XBPZImagePIckerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9681E6E7BDC005802A7 /* XBPZImagePIckerCell.swift */; };
 		FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */; };
 		FFEA209C1E7FB98400F195D8 /* XBPZLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEA209B1E7FB98400F195D8 /* XBPZLineViewController.swift */; };
 		FFF1893F1E7919160029B2C9 /* XBPZPieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */; };
-		FFF189401E7919160029B2C9 /* XBPZPieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */; };
 		FFFF97801E7B8344000DFFFE /* XBPZIconFontOCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFF977F1E7B8344000DFFFE /* XBPZIconFontOCViewController.m */; };
 		FFFF97831E7B8A64000DFFFE /* XBPZSptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFF97821E7B8A64000DFFFE /* XBPZSptViewController.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +40,6 @@
 		FF06218B1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZBootstrapButtonViewController.swift; sourceTree = "<group>"; };
 		FF06218C1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZBootstrapButtonViewController.xib; sourceTree = "<group>"; };
 		FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZTagViewController.swift; sourceTree = "<group>"; };
-		FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZTagViewController.xib; sourceTree = "<group>"; };
 		FF1A96DE1E7BEBB300608F8F /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		FF1A96DF1E7BEBB300608F8F /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
 		FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
@@ -57,19 +52,16 @@
 		FFE8E9451E6E6C28005802A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FFE8E9461E6E6C28005802A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFE8E94C1E6E6CD5005802A7 /* XBPZRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZRootViewController.swift; sourceTree = "<group>"; };
-		FFE8E94D1E6E6CD5005802A7 /* XBPZRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZRootViewController.xib; sourceTree = "<group>"; };
 		FFE8E9501E6E6D7B005802A7 /* XBPZRootCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZRootCollectionCell.swift; sourceTree = "<group>"; };
 		FFE8E9511E6E6D7B005802A7 /* XBPZRootCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZRootCollectionCell.xib; sourceTree = "<group>"; };
 		FFE8E9571E6E6E21005802A7 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		FFE8E95B1E6E6FAB005802A7 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FFE8E95F1E6E74C3005802A7 /* XBPZImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZImagePickerViewController.swift; sourceTree = "<group>"; };
-		FFE8E9601E6E74C3005802A7 /* XBPZImagePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZImagePickerViewController.xib; sourceTree = "<group>"; };
 		FFE8E9671E6E7ADF005802A7 /* iOSDiversityCollection-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOSDiversityCollection-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFE8E9681E6E7BDC005802A7 /* XBPZImagePIckerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZImagePIckerCell.swift; sourceTree = "<group>"; };
 		FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZImagePIckerCell.xib; sourceTree = "<group>"; };
 		FFEA209B1E7FB98400F195D8 /* XBPZLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZLineViewController.swift; sourceTree = "<group>"; };
 		FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZPieViewController.swift; sourceTree = "<group>"; };
-		FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZPieViewController.xib; sourceTree = "<group>"; };
 		FFFF977E1E7B8344000DFFFE /* XBPZIconFontOCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBPZIconFontOCViewController.h; sourceTree = "<group>"; };
 		FFFF977F1E7B8344000DFFFE /* XBPZIconFontOCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBPZIconFontOCViewController.m; sourceTree = "<group>"; };
 		FFFF97821E7B8A64000DFFFE /* XBPZSptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZSptViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				FF18A3841E766D2900E58BBF /* XBPZTagViewController.swift */,
-				FF18A3851E766D2900E58BBF /* XBPZTagViewController.xib */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -175,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				FFE8E94C1E6E6CD5005802A7 /* XBPZRootViewController.swift */,
-				FFE8E94D1E6E6CD5005802A7 /* XBPZRootViewController.xib */,
 				FFE8E9501E6E6D7B005802A7 /* XBPZRootCollectionCell.swift */,
 				FFE8E9511E6E6D7B005802A7 /* XBPZRootCollectionCell.xib */,
 			);
@@ -231,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				FFE8E95F1E6E74C3005802A7 /* XBPZImagePickerViewController.swift */,
-				FFE8E9601E6E74C3005802A7 /* XBPZImagePickerViewController.xib */,
 				FFE8E9681E6E7BDC005802A7 /* XBPZImagePIckerCell.swift */,
 				FFE8E9691E6E7BDC005802A7 /* XBPZImagePIckerCell.xib */,
 			);
@@ -250,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				FFF1893D1E7919160029B2C9 /* XBPZPieViewController.swift */,
-				FFF1893E1E7919160029B2C9 /* XBPZPieViewController.xib */,
 			);
 			path = Pie;
 			sourceTree = "<group>";
@@ -340,12 +328,8 @@
 				FFE8E94A1E6E6C28005802A7 /* Main.storyboard in Resources */,
 				FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */,
 				FFE8E9531E6E6D7B005802A7 /* XBPZRootCollectionCell.xib in Resources */,
-				FFE8E94F1E6E6CD5005802A7 /* XBPZRootViewController.xib in Resources */,
-				FFF189401E7919160029B2C9 /* XBPZPieViewController.xib in Resources */,
-				FF18A3871E766D2900E58BBF /* XBPZTagViewController.xib in Resources */,
 				FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */,
 				FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */,
-				FFE8E9621E6E74C3005802A7 /* XBPZImagePickerViewController.xib in Resources */,
 				FF06218E1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib in Resources */,
 				FF1A96E31E7BEBB300608F8F /* FontAwesome.ttf in Resources */,
 			);

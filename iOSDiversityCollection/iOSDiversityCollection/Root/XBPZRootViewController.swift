@@ -10,15 +10,38 @@ import UIKit
 
 class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    var collectionView: UICollectionView!
     var dataArray: [String] = [String]()
+    
+    override func loadView() {
+        self.view = UIView()
+        
+        let layout = UICollectionViewFlowLayout.init()
+        layout.itemSize = CGSize.init(width: 80, height: 80)
+        
+        self.collectionView  = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        
+        self.collectionView.register(UINib.init(nibName: "XBPZRootCollectionCell", bundle: Bundle.main), forCellWithReuseIdentifier: "XBPZRootCollectionCell")
+
+        self.view.addSubview(self.collectionView)
+        self.collectionView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        self.collectionView.backgroundColor = UIColor.orange
+    }
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.title = "目录"
-        // Do any additional setup after loading the view.
+        
         self.setupDataArray()
-        self.setupCollectionView()
+        
+
     }
 
     override func didReceiveMemoryWarning()
@@ -43,13 +66,6 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.dataArray = ["图片选择器", "标签列表", "饼状图", "按钮样式", "OC用iconfont", "SnapKit约束布局", "折线图"]
     }
 
-    func setupCollectionView()
-    {
-        self.collectionView.register(UINib.init(nibName: "XBPZRootCollectionCell", bundle: Bundle.main), forCellWithReuseIdentifier: "XBPZRootCollectionCell")
-        let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize.init(width: 80, height: 80)
-        self.collectionView.collectionViewLayout = layout
-    }
     
     // MARK:- CollectionDataSource&Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -85,6 +101,7 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
         default:
             break
         }
+        vc.edgesForExtendedLayout = []
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

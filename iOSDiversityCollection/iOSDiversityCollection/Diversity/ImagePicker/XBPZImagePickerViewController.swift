@@ -10,38 +10,39 @@ import UIKit
 
 class XBPZImagePickerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, TZImagePickerControllerDelegate {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    var collectionView: UICollectionView!
     var dataArray: [UIImage] = [UIImage]()
+    
+    
+    override func loadView() {
+        
+        self.view = UIView()
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize.init(width: 100, height: 100)
+        
+        self.collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        
+        self.collectionView.register(UINib.init(nibName: "XBPZImagePIckerCell", bundle: Bundle.main), forCellWithReuseIdentifier: "XBPZImagePIckerCell")
+
+        
+        self.view.addSubview(self.collectionView)
+        self.collectionView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        self.collectionView.backgroundColor = AARON_SWARTZ
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "图片选择器"
-        self.setupCollectionView()
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    func setupCollectionView()
-    {
-        self.collectionView.register(UINib.init(nibName: "XBPZImagePIckerCell", bundle: Bundle.main), forCellWithReuseIdentifier: "XBPZImagePIckerCell")
-        let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize.init(width: 100, height: 100)
-        self.collectionView.collectionViewLayout = layout
-    }
     
     // MARK:- CollectionDataSource&Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int

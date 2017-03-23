@@ -112,14 +112,14 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.brown
+        self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
-        self.slider = UISlider.init(frame: CGRect.init(x: 20, y: 300, width: self.view.bounds.width - 40, height: 20))
+        self.slider = UISlider.init(frame: CGRect.init(x: 20, y: 400, width: self.view.bounds.width - 40, height: 20))
         self.view.addSubview(self.slider)
         self.slider.addTarget(self, action: #selector(changeValue), for: .valueChanged)
         
         // 2 添加第2个slider
-        self.timeSlider = UISlider.init(frame: CGRect.init(x: 20, y: 350, width: self.view.bounds.width - 40, height: 20))
+        self.timeSlider = UISlider.init(frame: CGRect.init(x: 20, y: 450, width: self.view.bounds.width - 40, height: 20))
         self.view.addSubview(self.timeSlider)
         self.timeSlider.isEnabled = false
         self.timeSlider.addTarget(self, action: #selector(changeTime), for: .valueChanged)
@@ -129,7 +129,7 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         // 配置slder 颜色
         self.slider.tintColor = UIColor.red
         
-        lineChartView = LineChartView.init(frame: CGRect.init(x: 20.0, y: 20.0, width: self.view.bounds.width - 40.0, height: 200))
+        lineChartView = LineChartView.init(frame: CGRect.init(x: 20.0, y: 20.0, width: self.view.bounds.width - 40.0, height: 300))
         self.view.addSubview(lineChartView!)
         lineChartView?.chartDescription?.enabled = false
         lineChartView?.backgroundColor = UIColor.white
