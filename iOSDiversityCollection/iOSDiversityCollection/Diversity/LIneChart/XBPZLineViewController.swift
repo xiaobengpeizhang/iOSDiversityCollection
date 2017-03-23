@@ -124,6 +124,123 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         self.timeSlider.isEnabled = false
         self.timeSlider.addTarget(self, action: #selector(changeTime), for: .valueChanged)
         
+        
+        
+        // 配置slder 颜色
+        self.slider.tintColor = UIColor.red
+        
+        lineChartView = LineChartView.init(frame: CGRect.init(x: 20.0, y: 20.0, width: self.view.bounds.width - 40.0, height: 200))
+        self.view.addSubview(lineChartView!)
+        lineChartView?.chartDescription?.enabled = false
+        lineChartView?.backgroundColor = UIColor.white
+        lineChartView?.delegate = self
+        lineChartView?.dragEnabled = false
+        lineChartView?.setScaleEnabled(false)
+        lineChartView?.pinchZoomEnabled = false
+        lineChartView?.drawGridBackgroundEnabled = false
+        lineChartView?.highlightPerTapEnabled = true
+        let xAxis = lineChartView?.xAxis
+        xAxis?.labelPosition = .bottom
+        xAxis?.drawLabelsEnabled = true
+        xAxis?.drawGridLinesEnabled = true
+        xAxis?.drawAxisLineEnabled = true
+        // x轴的字体
+        xAxis?.labelFont = UIFont.italicSystemFont(ofSize: 11)
+        xAxis?.labelTextColor = UIColor.colorBy16(rgbValue: 0x7a7a7a)
+        xAxis?.yOffset = 13.0
+        let formatter = IndexAxisValueFormatter.init(values: ["00:00", "03:12", "06:24", "09:36", "12:48", "16:00", "19:12"])
+        xAxis?.valueFormatter = formatter
+        xAxis?.granularity = 1
+        // y轴是否显示
+        let leftY = lineChartView?.leftAxis
+        leftY?.drawAxisLineEnabled = true
+        let rightY = lineChartView?.rightAxis
+        rightY?.drawAxisLineEnabled = true
+        
+        // y轴是否显示labels
+        leftY?.drawLabelsEnabled = true
+        rightY?.drawLabelsEnabled = true
+        
+        // y轴的字体离线的位置
+        leftY?.xOffset = 8
+        rightY?.xOffset = 20
+        
+        // y轴的范围
+        leftY?.axisMaximum = 10000
+        leftY?.axisMinimum = 0
+        rightY?.axisMinimum = 0
+        rightY?.axisMaximum = 250
+        
+        // y轴的字体
+        leftY?.labelFont = UIFont.systemFont(ofSize: 10.0)
+        leftY?.labelTextColor = UIColor.colorBy16(rgbValue: 0x5b9bd5)
+        rightY?.labelFont = UIFont.systemFont(ofSize: 10.0)
+        rightY?.labelTextColor = UIColor.colorBy16(rgbValue: 0xed7d32)
+        
+        // y轴是否有网格线
+        leftY?.drawGridLinesEnabled = false
+        rightY?.drawGridLinesEnabled = false
+        
+        // y轴是否划0线
+        leftY?.drawZeroLineEnabled = true
+        rightY?.drawZeroLineEnabled = true
+        
+        // y轴两个同坐标的点是否做区别
+        leftY?.granularityEnabled = true
+        rightY?.granularityEnabled = true
+        let curves = [["Temp": 150, "AirFlow": 3500, "Time": 330], ["Temp": 170, "AirFlow": 4500, "Time": 120], ["Temp": 190, "AirFlow": 5000, "Time": 120], ["Temp": 210, "AirFlow": 5500, "Time": 120], ["Temp": 222, "AirFlow": 6000, "Time": 120]]
+        var airFlowEntries = [ChartDataEntry]()
+        var tempEntries = [ChartDataEntry]()
+        var initialTime = 0
+        for curve in curves {
+            let temp = curve["Temp"]
+            let airFlow = curve["AirFlow"]
+            self.airValue.append(airFlow!)
+            self.tempValue.append(temp!)
+            let time = curve["Time"]
+            self.timeValue.append(time!)
+            
+            initialTime += time!
+            self.timeFromZero.append(initialTime)
+            
+            let xPoint = (Double)(initialTime) / 192.0
+            
+            self.justForIndex.append(xPoint)
+            
+            let tempEntry = ChartDataEntry.init(x: xPoint, y: Double(temp!), data: Line.TempLine  as AnyObject?)
+            let airFlowEntry = ChartDataEntry.init(x: xPoint, y: Double(airFlow!), data: Line.AirLine as AnyObject?)
+            airFlowEntries.append(airFlowEntry)
+            tempEntries.append(tempEntry)
+        }
+        
+        airFlowEntries.insert(ChartDataEntry.init(x: 0, y: 0, data: Line.AirLine as AnyObject?), at: 0)
+        tempEntries.insert(ChartDataEntry.init(x: 0, y: 90, data: Line.TempLine as AnyObject?), at: 0)
+        self.justForIndex.insert(0, at: 0)
+        self.airValue.insert(0, at: 0)
+        self.tempValue.insert(90, at: 0)
+        self.timeValue.insert(0, at: 0)
+        self.timeFromZero.insert(0, at: 0)
+        
+        print("justForIndex: \(self.justForIndex)")
+        
+        let airFlowDataSet = LineChartDataSet.init(values: airFlowEntries, label: "风量")
+        let tempDataSet = LineChartDataSet.init(values: tempEntries, label: "温度")
+        airFlowDataSet.axisDependency = .left
+        tempDataSet.axisDependency = .right
+        airFlowDataSet.valueFont = UIFont.systemFont(ofSize: 11.0)
+        tempDataSet.valueFont = UIFont.systemFont(ofSize: 11.0)
+        airFlowDataSet.valueTextColor = LINE_COLORS_LEFT_YAXIS
+        tempDataSet.valueTextColor = LINE_COLORS_RIGHT_YXAXIS
+        airFlowDataSet.setColor(LINE_COLORS_LEFT_YAXIS)
+        tempDataSet.setColor(LINE_COLORS_RIGHT_YXAXIS)
+        airFlowDataSet.circleRadius = 2.0
+        tempDataSet.circleRadius = 2.0
+        airFlowDataSet.setCircleColor(LINE_COLORS_LEFT_YAXIS)
+        airFlowDataSet.circleHoleColor = LINE_COLORS_LEFT_YAXIS
+        tempDataSet.setCircleColor(LINE_COLORS_RIGHT_YXAXIS)
+        tempDataSet.circleHoleColor = LINE_COLORS_RIGHT_YXAXIS
+        let data = LineChartData.init(dataSets: [tempDataSet, airFlowDataSet])
+        lineChartView?.data = data
     }
     
     
@@ -255,6 +372,7 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         }
         
         // 5 更新图表
+        self.lineChartView?.data?.notifyDataChanged()
         self.lineChartView?.notifyDataSetChanged()
     }
     
@@ -266,121 +384,121 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
     {
         
         super.viewDidAppear(animated)
-        // 配置slder 颜色
-        self.slider.tintColor = UIColor.red
-        
-        lineChartView = LineChartView.init(frame: CGRect.init(x: 20.0, y: 20.0, width: self.view.bounds.width - 40.0, height: 200))
-        self.view.addSubview(lineChartView!)
-        lineChartView?.chartDescription?.enabled = false
-        lineChartView?.backgroundColor = UIColor.white
-        lineChartView?.delegate = self
-        lineChartView?.dragEnabled = false
-        lineChartView?.setScaleEnabled(false)
-        lineChartView?.pinchZoomEnabled = false
-        lineChartView?.drawGridBackgroundEnabled = false
-        lineChartView?.highlightPerTapEnabled = true
-        let xAxis = lineChartView?.xAxis
-        xAxis?.labelPosition = .bottom
-        xAxis?.drawLabelsEnabled = true
-        xAxis?.drawGridLinesEnabled = true
-        xAxis?.drawAxisLineEnabled = true
-        // x轴的字体
-        xAxis?.labelFont = UIFont.italicSystemFont(ofSize: 11)
-        xAxis?.labelTextColor = UIColor.colorBy16(rgbValue: 0x7a7a7a)
-        xAxis?.yOffset = 13.0
-        let formatter = IndexAxisValueFormatter.init(values: ["00:00", "03:12", "06:24", "09:36", "12:48", "16:00", "19:12"])
-        xAxis?.valueFormatter = formatter
-        xAxis?.granularity = 1
-        // y轴是否显示
-        let leftY = lineChartView?.leftAxis
-        leftY?.drawAxisLineEnabled = true
-        let rightY = lineChartView?.rightAxis
-        rightY?.drawAxisLineEnabled = true
-        
-        // y轴是否显示labels
-        leftY?.drawLabelsEnabled = true
-        rightY?.drawLabelsEnabled = true
-        
-        // y轴的字体离线的位置
-        leftY?.xOffset = 8
-        rightY?.xOffset = 20
-        
-        // y轴的范围
-        leftY?.axisMaximum = 10000
-        leftY?.axisMinimum = 0
-        rightY?.axisMinimum = 0
-        rightY?.axisMaximum = 250
-        
-        // y轴的字体
-        leftY?.labelFont = UIFont.systemFont(ofSize: 10.0)
-        leftY?.labelTextColor = UIColor.colorBy16(rgbValue: 0x5b9bd5)
-        rightY?.labelFont = UIFont.systemFont(ofSize: 10.0)
-        rightY?.labelTextColor = UIColor.colorBy16(rgbValue: 0xed7d32)
-        
-        // y轴是否有网格线
-        leftY?.drawGridLinesEnabled = false
-        rightY?.drawGridLinesEnabled = false
-        
-        // y轴是否划0线
-        leftY?.drawZeroLineEnabled = true
-        rightY?.drawZeroLineEnabled = true
-        
-        // y轴两个同坐标的点是否做区别
-        leftY?.granularityEnabled = true
-        rightY?.granularityEnabled = true
-        let curves = [["Temp": 150, "AirFlow": 3500, "Time": 330], ["Temp": 170, "AirFlow": 4500, "Time": 120], ["Temp": 190, "AirFlow": 5000, "Time": 120], ["Temp": 210, "AirFlow": 5500, "Time": 120], ["Temp": 222, "AirFlow": 6000, "Time": 120]]
-        var airFlowEntries = [ChartDataEntry]()
-        var tempEntries = [ChartDataEntry]()
-        var initialTime = 0
-        for curve in curves {
-            let temp = curve["Temp"]
-            let airFlow = curve["AirFlow"]
-            self.airValue.append(airFlow!)
-            self.tempValue.append(temp!)
-            let time = curve["Time"]
-            self.timeValue.append(time!)
-            
-            initialTime += time!
-            self.timeFromZero.append(initialTime)
-        
-            let xPoint = (Double)(initialTime) / 192.0
-            
-            self.justForIndex.append(xPoint)
-            
-            let tempEntry = ChartDataEntry.init(x: xPoint, y: Double(temp!), data: Line.TempLine  as AnyObject?)
-            let airFlowEntry = ChartDataEntry.init(x: xPoint, y: Double(airFlow!), data: Line.AirLine as AnyObject?)
-            airFlowEntries.append(airFlowEntry)
-            tempEntries.append(tempEntry)
-        }
-        
-        airFlowEntries.insert(ChartDataEntry.init(x: 0, y: 0, data: Line.AirLine as AnyObject?), at: 0)
-        tempEntries.insert(ChartDataEntry.init(x: 0, y: 90, data: Line.TempLine as AnyObject?), at: 0)
-        self.justForIndex.insert(0, at: 0)
-        self.airValue.insert(0, at: 0)
-        self.tempValue.insert(90, at: 0)
-        self.timeValue.insert(0, at: 0)
-        self.timeFromZero.insert(0, at: 0)
-        
-        print("justForIndex: \(self.justForIndex)")
-        
-        let airFlowDataSet = LineChartDataSet.init(values: airFlowEntries, label: "风量")
-        let tempDataSet = LineChartDataSet.init(values: tempEntries, label: "温度")
-        airFlowDataSet.axisDependency = .left
-        tempDataSet.axisDependency = .right
-        airFlowDataSet.valueFont = UIFont.systemFont(ofSize: 11.0)
-        tempDataSet.valueFont = UIFont.systemFont(ofSize: 11.0)
-        airFlowDataSet.valueTextColor = LINE_COLORS_LEFT_YAXIS
-        tempDataSet.valueTextColor = LINE_COLORS_RIGHT_YXAXIS
-        airFlowDataSet.setColor(LINE_COLORS_LEFT_YAXIS)
-        tempDataSet.setColor(LINE_COLORS_RIGHT_YXAXIS)
-        airFlowDataSet.circleRadius = 2.0
-        tempDataSet.circleRadius = 2.0
-        airFlowDataSet.setCircleColor(LINE_COLORS_LEFT_YAXIS)
-        airFlowDataSet.circleHoleColor = LINE_COLORS_LEFT_YAXIS
-        tempDataSet.setCircleColor(LINE_COLORS_RIGHT_YXAXIS)
-        tempDataSet.circleHoleColor = LINE_COLORS_RIGHT_YXAXIS
-        let data = LineChartData.init(dataSets: [tempDataSet, airFlowDataSet])
-        lineChartView?.data = data
+//        // 配置slder 颜色
+//        self.slider.tintColor = UIColor.red
+//        
+//        lineChartView = LineChartView.init(frame: CGRect.init(x: 20.0, y: 20.0, width: self.view.bounds.width - 40.0, height: 200))
+//        self.view.addSubview(lineChartView!)
+//        lineChartView?.chartDescription?.enabled = false
+//        lineChartView?.backgroundColor = UIColor.white
+//        lineChartView?.delegate = self
+//        lineChartView?.dragEnabled = false
+//        lineChartView?.setScaleEnabled(false)
+//        lineChartView?.pinchZoomEnabled = false
+//        lineChartView?.drawGridBackgroundEnabled = false
+//        lineChartView?.highlightPerTapEnabled = true
+//        let xAxis = lineChartView?.xAxis
+//        xAxis?.labelPosition = .bottom
+//        xAxis?.drawLabelsEnabled = true
+//        xAxis?.drawGridLinesEnabled = true
+//        xAxis?.drawAxisLineEnabled = true
+//        // x轴的字体
+//        xAxis?.labelFont = UIFont.italicSystemFont(ofSize: 11)
+//        xAxis?.labelTextColor = UIColor.colorBy16(rgbValue: 0x7a7a7a)
+//        xAxis?.yOffset = 13.0
+//        let formatter = IndexAxisValueFormatter.init(values: ["00:00", "03:12", "06:24", "09:36", "12:48", "16:00", "19:12"])
+//        xAxis?.valueFormatter = formatter
+//        xAxis?.granularity = 1
+//        // y轴是否显示
+//        let leftY = lineChartView?.leftAxis
+//        leftY?.drawAxisLineEnabled = true
+//        let rightY = lineChartView?.rightAxis
+//        rightY?.drawAxisLineEnabled = true
+//        
+//        // y轴是否显示labels
+//        leftY?.drawLabelsEnabled = true
+//        rightY?.drawLabelsEnabled = true
+//        
+//        // y轴的字体离线的位置
+//        leftY?.xOffset = 8
+//        rightY?.xOffset = 20
+//        
+//        // y轴的范围
+//        leftY?.axisMaximum = 10000
+//        leftY?.axisMinimum = 0
+//        rightY?.axisMinimum = 0
+//        rightY?.axisMaximum = 250
+//        
+//        // y轴的字体
+//        leftY?.labelFont = UIFont.systemFont(ofSize: 10.0)
+//        leftY?.labelTextColor = UIColor.colorBy16(rgbValue: 0x5b9bd5)
+//        rightY?.labelFont = UIFont.systemFont(ofSize: 10.0)
+//        rightY?.labelTextColor = UIColor.colorBy16(rgbValue: 0xed7d32)
+//        
+//        // y轴是否有网格线
+//        leftY?.drawGridLinesEnabled = false
+//        rightY?.drawGridLinesEnabled = false
+//        
+//        // y轴是否划0线
+//        leftY?.drawZeroLineEnabled = true
+//        rightY?.drawZeroLineEnabled = true
+//        
+//        // y轴两个同坐标的点是否做区别
+//        leftY?.granularityEnabled = true
+//        rightY?.granularityEnabled = true
+//        let curves = [["Temp": 150, "AirFlow": 3500, "Time": 330], ["Temp": 170, "AirFlow": 4500, "Time": 120], ["Temp": 190, "AirFlow": 5000, "Time": 120], ["Temp": 210, "AirFlow": 5500, "Time": 120], ["Temp": 222, "AirFlow": 6000, "Time": 120]]
+//        var airFlowEntries = [ChartDataEntry]()
+//        var tempEntries = [ChartDataEntry]()
+//        var initialTime = 0
+//        for curve in curves {
+//            let temp = curve["Temp"]
+//            let airFlow = curve["AirFlow"]
+//            self.airValue.append(airFlow!)
+//            self.tempValue.append(temp!)
+//            let time = curve["Time"]
+//            self.timeValue.append(time!)
+//            
+//            initialTime += time!
+//            self.timeFromZero.append(initialTime)
+//        
+//            let xPoint = (Double)(initialTime) / 192.0
+//            
+//            self.justForIndex.append(xPoint)
+//            
+//            let tempEntry = ChartDataEntry.init(x: xPoint, y: Double(temp!), data: Line.TempLine  as AnyObject?)
+//            let airFlowEntry = ChartDataEntry.init(x: xPoint, y: Double(airFlow!), data: Line.AirLine as AnyObject?)
+//            airFlowEntries.append(airFlowEntry)
+//            tempEntries.append(tempEntry)
+//        }
+//        
+//        airFlowEntries.insert(ChartDataEntry.init(x: 0, y: 0, data: Line.AirLine as AnyObject?), at: 0)
+//        tempEntries.insert(ChartDataEntry.init(x: 0, y: 90, data: Line.TempLine as AnyObject?), at: 0)
+//        self.justForIndex.insert(0, at: 0)
+//        self.airValue.insert(0, at: 0)
+//        self.tempValue.insert(90, at: 0)
+//        self.timeValue.insert(0, at: 0)
+//        self.timeFromZero.insert(0, at: 0)
+//        
+//        print("justForIndex: \(self.justForIndex)")
+//        
+//        let airFlowDataSet = LineChartDataSet.init(values: airFlowEntries, label: "风量")
+//        let tempDataSet = LineChartDataSet.init(values: tempEntries, label: "温度")
+//        airFlowDataSet.axisDependency = .left
+//        tempDataSet.axisDependency = .right
+//        airFlowDataSet.valueFont = UIFont.systemFont(ofSize: 11.0)
+//        tempDataSet.valueFont = UIFont.systemFont(ofSize: 11.0)
+//        airFlowDataSet.valueTextColor = LINE_COLORS_LEFT_YAXIS
+//        tempDataSet.valueTextColor = LINE_COLORS_RIGHT_YXAXIS
+//        airFlowDataSet.setColor(LINE_COLORS_LEFT_YAXIS)
+//        tempDataSet.setColor(LINE_COLORS_RIGHT_YXAXIS)
+//        airFlowDataSet.circleRadius = 2.0
+//        tempDataSet.circleRadius = 2.0
+//        airFlowDataSet.setCircleColor(LINE_COLORS_LEFT_YAXIS)
+//        airFlowDataSet.circleHoleColor = LINE_COLORS_LEFT_YAXIS
+//        tempDataSet.setCircleColor(LINE_COLORS_RIGHT_YXAXIS)
+//        tempDataSet.circleHoleColor = LINE_COLORS_RIGHT_YXAXIS
+//        let data = LineChartData.init(dataSets: [tempDataSet, airFlowDataSet])
+//        lineChartView?.data = data
     }
     
     // 选中图表的代理方法
