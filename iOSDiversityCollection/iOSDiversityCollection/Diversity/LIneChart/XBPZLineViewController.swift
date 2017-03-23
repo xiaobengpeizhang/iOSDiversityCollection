@@ -15,7 +15,10 @@
  2. 需要知道点击的是第几个点
  3. 需要确定这个点可以调节的最大值，最小值
  4. 需要显示当前的slider的状态
- 5. 能够调节slider
+ 5. 能够调节slider 改变温度 和 风量
+ 6. 需要知道可以调节的时间的范围
+ 7. 时间范围确定。 添加一个slider
+ 8. 滑动改变时间值 以整数为单位
  */
 
 import UIKit
@@ -89,6 +92,8 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
     
     var slider: UISlider!                       // 滑动控件
     
+    var timeSlider: UISlider!                   // 时间滑动
+    
     var selectedLine: Line = Line.None          // 标记 当前点击的是哪条线
     
     var selectPoint: Int = -1                   // 当前选中的点
@@ -99,6 +104,11 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
     
     var tempValue: [Int] = []                   // 保存温度的值
     
+    var timeValue: [Int] = []                   // 当前的时间间隔
+    
+    var timeFromZero: [Int] = []                // 时间距离到0的值
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -107,6 +117,12 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         self.slider = UISlider.init(frame: CGRect.init(x: 20, y: 300, width: self.view.bounds.width - 40, height: 20))
         self.view.addSubview(self.slider)
         self.slider.addTarget(self, action: #selector(changeValue), for: .valueChanged)
+        
+        // 2 添加第2个slider
+        self.timeSlider = UISlider.init(frame: CGRect.init(x: 20, y: 350, width: self.view.bounds.width - 40, height: 20))
+        self.view.addSubview(self.timeSlider)
+        self.timeSlider.isEnabled = false
+        self.timeSlider.addTarget(self, action: #selector(changeTime), for: .valueChanged)
         
     }
     
@@ -182,22 +198,67 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         
         // 3 刷新图表
         self.lineChartView?.notifyDataSetChanged()
-        
 
-    
-//        print("result: \(result)")
-//        let tempDataSet = lineChartView?.data?.dataSets[0] as! LineChartDataSet
-//        let oneDataEntry = tempDataSet.values[1]
-//        print("oneDataEntry: \(oneDataEntry)")
-//        let xPoint = oneDataEntry.x
-//        let newDataEntry = ChartDataEntry.init(x: xPoint, y: Double(result))
-//        print("newDataEntry: \(newDataEntry)")
-//        tempDataSet.values[1] = newDataEntry
-//        print("tempDataSetValues: \(tempDataSet.values)")
-//        lineChartView?.data?.dataSets[0].notifyDataSetChanged()
-//        lineChartView?.data?.notifyDataChanged()
-//        lineChartView?.notifyDataSetChanged()
     }
+    
+    
+    // 改时间
+    func changeTime(slider: UISlider) {
+        // 1 确定展示的时间
+        let value = slider.value
+        let min = self.getTimeMaxMin().0
+        let max = self.getTimeMaxMin().1
+        
+        print("min: \(min) max: \(max) value: \(value)")
+        let showValue = Double(max - min) * (Double)(value) + (Double)(min)
+        print("time showValue: \(Int(showValue))")
+        
+        // 2 前一个的时间再加当前时间间隔
+        let currentTime =  self.timeFromZero[self.selectPoint - 1] + Int(showValue)
+        // 3 转换成192
+        let shouldX = Double(currentTime) / 192.0
+        print("currentTIme: \(currentTime) shouldX: \(shouldX)")
+        
+        // 4 替换两条线的entry的xPoint
+//        let airDataSet = self.lineChartView?.data?.dataSets[1] as! LineChartDataSet
+//        let tempDataSet = self.lineChartView?.data?.dataSets[0] as! LineChartDataSet
+//        let airYpoint = airDataSet.values[self.selectPoint].y
+//        let tempYpoint = tempDataSet.values[self.selectPoint].y
+//        let newAirEntry = ChartDataEntry.init(x: shouldX, y: airYpoint, data: Line.AirLine as AnyObject?)
+//        let newTmpEntry = ChartDataEntry.init(x: shouldX, y: tempYpoint, data: Line.AirLine as AnyObject?)
+//        airDataSet.values[self.selectPoint] = newAirEntry
+//        tempDataSet.values[self.selectPoint] = newTmpEntry
+        self.timeValue[self.selectPoint] = Int(showValue)
+        
+        // time from zero 往后一次会递增
+        // 当前Index self.selectPoint
+        // 到达点 
+        for index in self.selectPoint..<self.timeFromZero.count {
+            let eachTime = self.timeFromZero[index - 1] + self.timeValue[index]
+            self.timeFromZero[index] = eachTime
+            print("eachTime: \(eachTime)")
+            
+            let airDataSet = self.lineChartView?.data?.dataSets[1] as! LineChartDataSet
+            let tempDataSet = self.lineChartView?.data?.dataSets[0] as! LineChartDataSet
+            let eachAirY =  airDataSet.values[index].y
+            let eachTemY = tempDataSet.values[index].y
+            let shouldX = Double(eachTime) / 192.0
+            print("shouldX: \(shouldX)")
+            let newAirEntry = ChartDataEntry.init(x: shouldX, y: eachAirY, data: Line.AirLine as AnyObject?)
+            let newTmpEntry = ChartDataEntry.init(x: shouldX, y: eachTemY, data: Line.AirLine as AnyObject?)
+            
+            airDataSet.values[index] = newAirEntry
+            tempDataSet.values[index] = newTmpEntry
+            
+            // 更新shouldX的计算Inde数组
+            self.justForIndex[index] = shouldX
+        }
+        
+        // 5 更新图表
+        self.lineChartView?.notifyDataSetChanged()
+    }
+    
+    
     
     //
     
@@ -276,8 +337,12 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
             let airFlow = curve["AirFlow"]
             self.airValue.append(airFlow!)
             self.tempValue.append(temp!)
+            let time = curve["Time"]
+            self.timeValue.append(time!)
             
-            initialTime += (curve["Time"])!
+            initialTime += time!
+            self.timeFromZero.append(initialTime)
+        
             let xPoint = (Double)(initialTime) / 192.0
             
             self.justForIndex.append(xPoint)
@@ -293,6 +358,9 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         self.justForIndex.insert(0, at: 0)
         self.airValue.insert(0, at: 0)
         self.tempValue.insert(90, at: 0)
+        self.timeValue.insert(0, at: 0)
+        self.timeFromZero.insert(0, at: 0)
+        
         print("justForIndex: \(self.justForIndex)")
         
         let airFlowDataSet = LineChartDataSet.init(values: airFlowEntries, label: "风量")
@@ -332,12 +400,14 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
         // 3 确定slider的范围
         if self.selectPoint == 0 {
             self.slider.isEnabled = false
-        
+            self.timeSlider.isEnabled = false
         }
         else {
             self.slider.isEnabled = true
+            self.timeSlider.isEnabled = true
             self.refreshSliderState()
         }
+        
     }
     
     // 刷新Slider的最大值，最小值， 和当前的点的数据
@@ -353,6 +423,16 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
     
         // 更新slider的范围
         self.slider.value = Float(silderCurrent)
+        
+        // 2 刷新时间的slider
+        let timeMin = self.getTimeMaxMin().0
+        let timeMax = self.getTimeMaxMin().1
+        
+        // 当前间隔时间
+        let currentTimeY = self.timeValue[self.selectPoint]
+        let timeSliderCurrent = Double(currentTimeY - timeMin) / Double(timeMax - timeMin)
+        self.timeSlider.value = Float(timeSliderCurrent)
+        print("currentTimeY: \(currentTimeY) timeSlider: \(timeSliderCurrent)")
     }
     
     
@@ -366,7 +446,7 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
     
     //返回这个点的调节值的纵坐标范围 元祖0为最小值  元祖1为最大值
     //原则是第0个点不可调，最后一个点和倒数第二个点可以相等。
-    //
+    // 温度 或者 风量
     func getMaxMin() -> (Int, Int) {
         var min = 0
         var max = 0
@@ -421,6 +501,35 @@ class XBPZLineViewController: UIViewController, ChartViewDelegate
             break
         }
         print("max: \(max) min: \(min)")
+        return (min, max)
+    }
+    
+    
+    // 返回这个点能调节的时间的最大值最小值 是时间间隔！
+    func getTimeMaxMin() -> (Int, Int) {
+        var min = 0
+        var max = 0
+        let timeMax = maxTime - self.timeFromZero[self.timeFromZero.count - 1] + self.timeValue[self.selectPoint]
+        // 1. 因为不区分点的最小值和最大值 所以点哪个点都可以
+        if self.selectPoint == 0 {
+            // 选中第0个点
+        }
+        else if self.selectPoint == 1 {
+            // 选中第1个点
+            min = timeOneMin
+            max = timeMax > timeOneMax ? timeOneMax : timeMax
+        }
+        else if self.selectPoint == 5 {
+            // 选中第5个点
+            min = timeEndMin
+            max = timeMax > timeEndMin ? timeEndMax : timeMax
+        }
+        else {
+            min = timeOtherMin
+            max  = timeMax
+        }
+        print("time min: \(min) max: \(max)")
+    
         return (min, max)
     }
 }
