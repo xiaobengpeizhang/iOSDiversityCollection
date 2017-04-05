@@ -14,6 +14,7 @@
 		FF1A96E31E7BEBB300608F8F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1A96DE1E7BEBB300608F8F /* FontAwesome.ttf */; };
 		FF1A96E41E7BEBB300608F8F /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */; };
 		FF1A96E51E7BEBB300608F8F /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */; };
+		FFA51FF11E9484D500A5D806 /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA51FF01E9484D500A5D806 /* ScrollPageViewController.swift */; };
 		FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */; };
 		FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9411E6E6C28005802A7 /* Assets.xcassets */; };
 		FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9421E6E6C28005802A7 /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 		FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 		FF1A96E11E7BEBB300608F8F /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
 		FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Bootstrap.m"; sourceTree = "<group>"; };
+		FFA51FF01E9484D500A5D806 /* ScrollPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollPageViewController.swift; sourceTree = "<group>"; };
 		FFE8E9291E6E6BAD005802A7 /* iOSDiversityCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDiversityCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE8E9411E6E6C28005802A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 			path = ButtoBootstra;
 			sourceTree = "<group>";
 		};
+		FFA51FEF1E9484A000A5D806 /* ScrollPageScroll */ = {
+			isa = PBXGroup;
+			children = (
+				FFA51FF01E9484D500A5D806 /* ScrollPageViewController.swift */,
+			);
+			path = ScrollPageScroll;
+			sourceTree = "<group>";
+		};
 		FFE8E9201E6E6BAD005802A7 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +216,7 @@
 		FFE8E95D1E6E7464005802A7 /* Diversity */ = {
 			isa = PBXGroup;
 			children = (
+				FFA51FEF1E9484A000A5D806 /* ScrollPageScroll */,
 				FFEA209A1E7FB95800F195D8 /* LIneChart */,
 				FFFF97811E7B8A4D000DFFFE /* SnapKitUse */,
 				FFFF977D1E7B8333000DFFFE /* IconFontOC */,
@@ -394,6 +405,7 @@
 				FFE8E95C1E6E6FAB005802A7 /* Extension.swift in Sources */,
 				FF1A96E51E7BEBB300608F8F /* UIButton+Bootstrap.m in Sources */,
 				FFE8E9581E6E6E21005802A7 /* Common.swift in Sources */,
+				FFA51FF11E9484D500A5D806 /* ScrollPageViewController.swift in Sources */,
 				FFE8E94E1E6E6CD5005802A7 /* XBPZRootViewController.swift in Sources */,
 				FFFF97801E7B8344000DFFFE /* XBPZIconFontOCViewController.m in Sources */,
 				FFFF97831E7B8A64000DFFFE /* XBPZSptViewController.swift in Sources */,

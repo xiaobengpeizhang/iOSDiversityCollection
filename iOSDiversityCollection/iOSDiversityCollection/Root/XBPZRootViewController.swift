@@ -63,7 +63,7 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func setupDataArray()
     {
-        self.dataArray = ["图片选择器", "标签列表", "饼状图", "按钮样式", "OC用iconfont", "SnapKit约束布局", "折线图"]
+        self.dataArray = ["图片选择器", "标签列表", "饼状图", "按钮样式", "OC用iconfont", "SnapKit约束布局", "折线图", "ScrollViewPage嵌套两个ScrollView"]
     }
 
     
@@ -98,6 +98,8 @@ class XBPZRootViewController: UIViewController, UICollectionViewDelegate, UIColl
             vc = XBPZSptViewController()
         case 6:
             vc = XBPZLineViewController()
+        case 7:
+            vc = ScrollPageViewController()
         default:
             break
         }
