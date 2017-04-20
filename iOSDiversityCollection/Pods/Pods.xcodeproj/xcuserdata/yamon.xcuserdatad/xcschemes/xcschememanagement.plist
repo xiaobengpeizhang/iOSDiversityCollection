@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOSDiversityCollection.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0656FA5EFD0D01F643C63865652954FE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>511DD442329A8127E1F222F741A0291A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>82C75D62480841E553014D81E775098C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B74251992C8C8008B93EA87D72342D9C</key>
+		<key>A61CEA0C7F0EF39B104F91E75E4B7646</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BACCAFE6626650740C98247692D789D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E14A62900910444707A5504D25EC98DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F307B842FF76B2DE6C55DB67C0885325</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEC7492F050BA7E27581CAE86943E5C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -3,21 +3,24 @@ PODS:
   - Charts (3.0.1):
     - Charts/Core (= 3.0.1)
   - Charts/Core (3.0.1)
+  - MJRefresh (3.1.12)
   - SnapKit (3.2.0)
   - TZImagePickerController (1.7.8)
 
 DEPENDENCIES:
   - AMTagListView
   - Charts
+  - MJRefresh
   - SnapKit (~> 3.2.0)
   - TZImagePickerController
 
 SPEC CHECKSUMS:
   AMTagListView: 08ab67466c67152f6299bc29a13a907783b0046f
   Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   TZImagePickerController: 87a138ae5d585225aaa6c8abe2cface0f0ad19dd
 
-PODFILE CHECKSUM: 5b9b6df6f8d03f54b6032bb76e9d58051ccd6cfd
+PODFILE CHECKSUM: fb7044e4d2e58f3fd7077bbd5ef41b9a373155e7
 
 COCOAPODS: 1.1.1

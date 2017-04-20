@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>
+		<string>iconfont.ttf</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>亲，允许访问相册以选择照片吗？</string>

@@ -6,4 +6,5 @@ target ‘iOSDiversityCollection’ do
 	pod 'AMTagListView'
 	pod ‘Charts’
 	pod 'SnapKit', '~> 3.2.0'
+	pod 'MJRefresh'
 end

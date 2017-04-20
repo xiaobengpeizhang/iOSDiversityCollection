@@ -14,7 +14,18 @@
 		FF1A96E31E7BEBB300608F8F /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF1A96DE1E7BEBB300608F8F /* FontAwesome.ttf */; };
 		FF1A96E41E7BEBB300608F8F /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */; };
 		FF1A96E51E7BEBB300608F8F /* UIButton+Bootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */; };
+		FF904E621EA5F95E0027296E /* XBPZStarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF904E611EA5F95E0027296E /* XBPZStarViewController.swift */; };
+		FF904E6C1EA5F9790027296E /* backgroundStar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF904E661EA5F9790027296E /* backgroundStar.png */; };
+		FF904E6D1EA5F9790027296E /* backgroundStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF904E671EA5F9790027296E /* backgroundStar@2x.png */; };
+		FF904E6E1EA5F9790027296E /* foregroundStar.png in Resources */ = {isa = PBXBuildFile; fileRef = FF904E681EA5F9790027296E /* foregroundStar.png */; };
+		FF904E6F1EA5F9790027296E /* foregroundStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FF904E691EA5F9790027296E /* foregroundStar@2x.png */; };
+		FF904E701EA5F9790027296E /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FF904E6B1EA5F9790027296E /* TQStarRatingView.m */; };
 		FFA51FF11E9484D500A5D806 /* ScrollPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA51FF01E9484D500A5D806 /* ScrollPageViewController.swift */; };
+		FFA51FF41E9497F200A5D806 /* RefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA51FF31E9497F200A5D806 /* RefreshViewController.swift */; };
+		FFE7071E1EA89FAE00C0B33B /* XBPZOneCellTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7071D1EA89FAE00C0B33B /* XBPZOneCellTableViewController.swift */; };
+		FFE707211EA8A02A00C0B33B /* XBPZOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE7071F1EA8A02A00C0B33B /* XBPZOneCell.swift */; };
+		FFE707221EA8A02A00C0B33B /* XBPZOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFE707201EA8A02A00C0B33B /* XBPZOneCell.xib */; };
+		FFE707241EA8A13000C0B33B /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFE707231EA8A13000C0B33B /* iconfont.ttf */; };
 		FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */; };
 		FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9411E6E6C28005802A7 /* Assets.xcassets */; };
 		FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFE8E9421E6E6C28005802A7 /* LaunchScreen.storyboard */; };
@@ -46,7 +57,19 @@
 		FF1A96E01E7BEBB300608F8F /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
 		FF1A96E11E7BEBB300608F8F /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
 		FF1A96E21E7BEBB300608F8F /* UIButton+Bootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Bootstrap.m"; sourceTree = "<group>"; };
+		FF904E611EA5F95E0027296E /* XBPZStarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZStarViewController.swift; sourceTree = "<group>"; };
+		FF904E661EA5F9790027296E /* backgroundStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundStar.png; sourceTree = "<group>"; };
+		FF904E671EA5F9790027296E /* backgroundStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundStar@2x.png"; sourceTree = "<group>"; };
+		FF904E681EA5F9790027296E /* foregroundStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foregroundStar.png; sourceTree = "<group>"; };
+		FF904E691EA5F9790027296E /* foregroundStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foregroundStar@2x.png"; sourceTree = "<group>"; };
+		FF904E6A1EA5F9790027296E /* TQStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQStarRatingView.h; sourceTree = "<group>"; };
+		FF904E6B1EA5F9790027296E /* TQStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQStarRatingView.m; sourceTree = "<group>"; };
 		FFA51FF01E9484D500A5D806 /* ScrollPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollPageViewController.swift; sourceTree = "<group>"; };
+		FFA51FF31E9497F200A5D806 /* RefreshViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshViewController.swift; sourceTree = "<group>"; };
+		FFE7071D1EA89FAE00C0B33B /* XBPZOneCellTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZOneCellTableViewController.swift; sourceTree = "<group>"; };
+		FFE7071F1EA8A02A00C0B33B /* XBPZOneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XBPZOneCell.swift; sourceTree = "<group>"; };
+		FFE707201EA8A02A00C0B33B /* XBPZOneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XBPZOneCell.xib; sourceTree = "<group>"; };
+		FFE707231EA8A13000C0B33B /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		FFE8E9291E6E6BAD005802A7 /* iOSDiversityCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDiversityCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFE8E9411E6E6C28005802A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +133,7 @@
 		FF0621821E7A7FBB00E19C44 /* DirectFramework */ = {
 			isa = PBXGroup;
 			children = (
+				FF904E631EA5F9790027296E /* TQStarRating */,
 				FF1A96DD1E7BEBB300608F8F /* ButtoBootstra */,
 			);
 			path = DirectFramework;
@@ -135,12 +159,67 @@
 			path = ButtoBootstra;
 			sourceTree = "<group>";
 		};
+		FF904E5C1EA5F6D80027296E /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				FF904E611EA5F95E0027296E /* XBPZStarViewController.swift */,
+			);
+			path = Star;
+			sourceTree = "<group>";
+		};
+		FF904E631EA5F9790027296E /* TQStarRating */ = {
+			isa = PBXGroup;
+			children = (
+				FF904E641EA5F9790027296E /* TQStarRating */,
+			);
+			path = TQStarRating;
+			sourceTree = "<group>";
+		};
+		FF904E641EA5F9790027296E /* TQStarRating */ = {
+			isa = PBXGroup;
+			children = (
+				FF904E651EA5F9790027296E /* Image */,
+				FF904E6A1EA5F9790027296E /* TQStarRatingView.h */,
+				FF904E6B1EA5F9790027296E /* TQStarRatingView.m */,
+			);
+			path = TQStarRating;
+			sourceTree = "<group>";
+		};
+		FF904E651EA5F9790027296E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FF904E661EA5F9790027296E /* backgroundStar.png */,
+				FF904E671EA5F9790027296E /* backgroundStar@2x.png */,
+				FF904E681EA5F9790027296E /* foregroundStar.png */,
+				FF904E691EA5F9790027296E /* foregroundStar@2x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		FFA51FEF1E9484A000A5D806 /* ScrollPageScroll */ = {
 			isa = PBXGroup;
 			children = (
 				FFA51FF01E9484D500A5D806 /* ScrollPageViewController.swift */,
 			);
 			path = ScrollPageScroll;
+			sourceTree = "<group>";
+		};
+		FFA51FF21E9497E500A5D806 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				FFA51FF31E9497F200A5D806 /* RefreshViewController.swift */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		FFE7071C1EA89F8000C0B33B /* OneCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFE7071D1EA89FAE00C0B33B /* XBPZOneCellTableViewController.swift */,
+				FFE7071F1EA8A02A00C0B33B /* XBPZOneCell.swift */,
+				FFE707201EA8A02A00C0B33B /* XBPZOneCell.xib */,
+			);
+			path = OneCell;
 			sourceTree = "<group>";
 		};
 		FFE8E9201E6E6BAD005802A7 = {
@@ -185,6 +264,7 @@
 		FFE8E93F1E6E6C28005802A7 /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				FFE707231EA8A13000C0B33B /* iconfont.ttf */,
 				FFE8E9671E6E7ADF005802A7 /* iOSDiversityCollection-Bridging-Header.h */,
 				FFE8E9401E6E6C28005802A7 /* AppDelegate.swift */,
 				FFE8E9411E6E6C28005802A7 /* Assets.xcassets */,
@@ -216,6 +296,9 @@
 		FFE8E95D1E6E7464005802A7 /* Diversity */ = {
 			isa = PBXGroup;
 			children = (
+				FFE7071C1EA89F8000C0B33B /* OneCell */,
+				FF904E5C1EA5F6D80027296E /* Star */,
+				FFA51FF21E9497E500A5D806 /* MJRefresh */,
 				FFA51FEF1E9484A000A5D806 /* ScrollPageScroll */,
 				FFEA209A1E7FB95800F195D8 /* LIneChart */,
 				FFFF97811E7B8A4D000DFFFE /* SnapKitUse */,
@@ -335,14 +418,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF904E6E1EA5F9790027296E /* foregroundStar.png in Resources */,
 				FFE8E94B1E6E6C28005802A7 /* Info.plist in Resources */,
+				FFE707241EA8A13000C0B33B /* iconfont.ttf in Resources */,
 				FFE8E94A1E6E6C28005802A7 /* Main.storyboard in Resources */,
 				FFE8E9481E6E6C28005802A7 /* Assets.xcassets in Resources */,
+				FFE707221EA8A02A00C0B33B /* XBPZOneCell.xib in Resources */,
+				FF904E6C1EA5F9790027296E /* backgroundStar.png in Resources */,
 				FFE8E9531E6E6D7B005802A7 /* XBPZRootCollectionCell.xib in Resources */,
 				FFE8E96B1E6E7BDC005802A7 /* XBPZImagePIckerCell.xib in Resources */,
+				FF904E6D1EA5F9790027296E /* backgroundStar@2x.png in Resources */,
 				FFE8E9491E6E6C28005802A7 /* LaunchScreen.storyboard in Resources */,
 				FF06218E1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.xib in Resources */,
 				FF1A96E31E7BEBB300608F8F /* FontAwesome.ttf in Resources */,
+				FF904E6F1EA5F9790027296E /* foregroundStar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE707211EA8A02A00C0B33B /* XBPZOneCell.swift in Sources */,
 				FFE8E9611E6E74C3005802A7 /* XBPZImagePickerViewController.swift in Sources */,
 				FFE8E95C1E6E6FAB005802A7 /* Extension.swift in Sources */,
 				FF1A96E51E7BEBB300608F8F /* UIButton+Bootstrap.m in Sources */,
@@ -409,11 +499,15 @@
 				FFE8E94E1E6E6CD5005802A7 /* XBPZRootViewController.swift in Sources */,
 				FFFF97801E7B8344000DFFFE /* XBPZIconFontOCViewController.m in Sources */,
 				FFFF97831E7B8A64000DFFFE /* XBPZSptViewController.swift in Sources */,
+				FFE7071E1EA89FAE00C0B33B /* XBPZOneCellTableViewController.swift in Sources */,
+				FF904E621EA5F95E0027296E /* XBPZStarViewController.swift in Sources */,
+				FFA51FF41E9497F200A5D806 /* RefreshViewController.swift in Sources */,
 				FF1A96E41E7BEBB300608F8F /* NSString+FontAwesome.m in Sources */,
 				FFE8E9521E6E6D7B005802A7 /* XBPZRootCollectionCell.swift in Sources */,
 				FF06218D1E7A853C00E19C44 /* XBPZBootstrapButtonViewController.swift in Sources */,
 				FF18A3861E766D2900E58BBF /* XBPZTagViewController.swift in Sources */,
 				FFEA209C1E7FB98400F195D8 /* XBPZLineViewController.swift in Sources */,
+				FF904E701EA5F9790027296E /* TQStarRatingView.m in Sources */,
 				FFE8E9471E6E6C28005802A7 /* AppDelegate.swift in Sources */,
 				FFF1893F1E7919160029B2C9 /* XBPZPieViewController.swift in Sources */,
 				FFE8E96A1E6E7BDC005802A7 /* XBPZImagePIckerCell.swift in Sources */,
